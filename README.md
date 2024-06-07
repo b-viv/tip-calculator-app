@@ -46,5 +46,4 @@ Users should be able to:
 ## Author
 
 - Frontend Mentor - [@Viv](https://www.frontendmentor.io/profile/b-viv)
-# tip-calculator-app
-# tip-calculator-app
+
