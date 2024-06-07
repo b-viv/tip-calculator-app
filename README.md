@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://b-viv.github.io/tip-calculator-app/)
+- Solution URL: [Link](https://www.frontendmentor.io/solutions/tip-calculator-app-U1ptuo7mMi)
+- Live Site URL: [Link](https://b-viv.github.io/tip-calculator-app/)
 
 ## My process
 
