@@ -1,0 +1,74 @@
+<main>
+  <div>
+    <div class="logo">
+      <img src="../../assets/images/logo.svg" alt="">
+    </div>
+    <section>
+      <div class="input-fields">
+        <form>
+          <div class="input-field dollar">
+            <div class="input-header">
+              <label for="billInput">Bill</label>
+              <p *ngIf="billInputModel.invalid && (billInputModel.dirty || billInputModel.touched) || isBillZero"
+                class="error-msg">Can't
+                be zero</p>
+            </div>
+            <input type="number" [(ngModel)]="billInput" (ngModelChange)="isValidInputZero()" #billInputModel="ngModel"
+              name="billInput" id="billInput" [min]="0"
+              [ngClass]="billInputModel.invalid && (billInputModel.dirty || billInputModel.touched) || isBillZero ? 'error-border' : '' "
+              placeholder="0" required>
+          </div>
+          <div class="tips">
+            <label for="tip">Select Tip %</label>
+            <div class="tip-btns">
+              <button type="button" (click)="selectTip(5)" [ngClass]="selectedTip === 5 ? 'clicked' : ''">5%</button>
+              <button type="button" (click)="selectTip(10)" [ngClass]="selectedTip === 10 ? 'clicked' : ''">10%</button>
+              <button type="button" (click)="selectTip(15)" [ngClass]="selectedTip === 15 ? 'clicked' : ''">15%</button>
+              <button type="button" (click)="selectTip(25)" [ngClass]="selectedTip === 25 ? 'clicked' : ''">25%</button>
+              <button type="button" (click)="selectTip(50)" [ngClass]="selectedTip === 50 ? 'clicked' : ''">50%</button>
+              <input type="number" [(ngModel)]="customTipInput" name="customTipInput" value="Custom" id="customTipInput"
+                placeholder="Custom">
+            </div>
+          </div>
+          <div class="input-field person">
+            <div class="input-header">
+              <label for="person">Number of People</label>
+              <p *ngIf="personInputModel.invalid && (personInputModel.dirty || personInputModel.touched) || isPersonZero"
+                class="error-msg">
+                Can't be zero</p>
+            </div>
+            <input type="number" [(ngModel)]="personInput" (ngModelChange)="isValidInputZero()"
+              #personInputModel="ngModel" name="personInput"
+              [ngClass]="personInputModel.invalid && (personInputModel.dirty || personInputModel.touched) || isPersonZero ? 'error-border' : '' "
+              id="personInput" placeholder="0" required>
+          </div>
+        </form>
+      </div>
+      <div class="display-results">
+        <div class="result-container">
+          <div class="result-section">
+            <div>
+              <p class="total-text">Tip Amount</p>
+              <p class="perPerson-text">/ person</p>
+            </div>
+            <div class="result-text">
+              <p>{{ tipPerPerson | currency}}</p>
+            </div>
+          </div>
+          <div class="result-section">
+            <div>
+              <p class="total-text">Total</p>
+              <p class="perPerson-text">/ person</p>
+            </div>
+            <div class="result-text">
+              <p>{{ totalPerPerson | currency}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="reset-btn-container">
+          <button type="reset" (click)="reset()" [ngClass]="isClicked ? 'clicked' : ''">Reset</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
